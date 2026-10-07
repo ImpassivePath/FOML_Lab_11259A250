@@ -16,3 +16,14 @@ print("R2 score:", round(model.score(X_test, y_test), 3))
 new_car = [[4, 120, 90, 2500, 16, 80]]                   
 mpg = model.predict(new_car)[0]                          
 print("Predicted mileage:", round(mpg, 1), "mpg")
+
+import matplotlib.pyplot as plt         
+import numpy as np
+
+w = data["weight"]; m = data["mpg"]           
+plt.scatter(w, m, alpha=0.5, color="#2F49D1", label="cars")  
+a, b = np.polyfit(w, m, 1)                     
+plt.plot(w, a*w + b, color="red", linewidth=2, label="trend line")
+plt.xlabel("weight (lbs)"); plt.ylabel("mpg")  
+plt.title("Heavier cars get fewer mpg"); plt.legend()
+plt.show() 
